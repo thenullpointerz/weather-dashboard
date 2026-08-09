@@ -1,0 +1,57 @@
+# Nombre que ves en la pestaña "Actions" de GitHub para identificar este workflow
+name: Fetch Weather Data
+
+# "on" define qué dispara este workflow
+on:
+  schedule:
+    # Cron de GitHub Actions: minuto hora dia-mes mes dia-semana.
+    # "0 * * * *" = en el minuto 0 de cada hora (osea, cada hora en punto)
+    - cron: "0 * * * *"
+  # Agrega un botón "Run workflow" en GitHub para dispararlo tú a mano,
+  # útil para probar sin esperar a que llegue la hora en punto
+  workflow_dispatch:
+
+# Por default, el token que usa el Action solo puede LEER el repo.
+# Como este workflow necesita hacer "git push" (commitear weather_data.json),
+# hay que darle permiso explícito de escritura.
+permissions:
+  contents: write
+
+# Un workflow puede tener varios "jobs" (trabajos); aquí solo tenemos uno.
+jobs:
+  fetch:                       # nombre interno del job (arbitrario)
+    runs-on: ubuntu-latest     # la VM donde corre: Ubuntu, se crea y destruye cada vez
+
+    steps:
+      # Paso 1: clona tu repo dentro de la VM (sin esto no hay archivos con qué trabajar)
+      - uses: actions/checkout@v4
+
+      # Paso 2: instala Python 3.13 en la VM (la misma versión que usas localmente)
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      # Paso 3: instala las dependencias listadas en requirements.txt (o sea, "requests")
+      - run: pip install -r requirements.txt
+
+      # Paso 4: corre tu script — hace el fetch a Open-Meteo y sobreescribe weather_data.json
+      - run: python fetch_weather.py
+
+      # Paso 5: si weather_data.json cambió, lo commitea y lo sube al repo
+      - run: |
+          # Le pone un "autor" al commit — GitHub Actions no tiene tu usuario de git,
+          # así que usamos la identidad estándar de bots de GitHub
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          # Marca weather_data.json para el próximo commit
+          git add weather_data.json
+
+          # "git diff --staged --quiet" no imprime nada y regresa éxito (0) si NO hay cambios.
+          # El "||" significa "si el comando de la izquierda falla, corre el de la derecha" —
+          # o sea: solo si SÍ hay cambios (diff falla), entonces haz el commit.
+          # Sin esto, el workflow tronaría cada hora que el clima no cambió (nada que commitear).
+          git diff --staged --quiet || git commit -m "Update weather data"
+
+          # Sube el commit (si se hizo) de vuelta al repo
+          git push

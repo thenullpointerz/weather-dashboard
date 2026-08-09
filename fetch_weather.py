@@ -4,8 +4,7 @@ import json
 
 def fetch_api_data():
 
-    url = "https://api.open-meteo.com/v1/forecast?latitude=19.4326&longitude=-99.1332&current=temperature_2m,weather_code,wind_speed_10m&hourly=temperature_2m,weather_code&daily=temperature_2m_max,temperature_2m_min,weather_code&timezone=America%2FMexico_City"
-
+    url = "https://api.open-meteo.com/v1/forecast?latitude=19.4326&longitude=-99.1332&current=temperature_2m,weather_code,wind_speed_10m&hourly=temperature_2m,weather_code&daily=temperature_2m_max,temperature_2m_min,weather_code&past_days=7&timezone=America%2FMexico_City"
     response = requests.get(url)
     response.raise_for_status
 

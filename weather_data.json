@@ -1,8 +1,8 @@
 {
   "current": {
-    "temperature": 21.0,
-    "weather_code": 95,
-    "wind_speed": 3.2
+    "temperature": 17.1,
+    "weather_code": 61,
+    "wind_speed": 6.2
   },
   "hourly": [
     {

@@ -1,8 +1,8 @@
 {
   "current": {
-    "temperature": 14.1,
+    "temperature": 11.6,
     "weather_code": 3,
-    "wind_speed": 15.1
+    "wind_speed": 9.5
   },
   "hourly": [
     {
@@ -403,7 +403,7 @@
     {
       "time": "2026-10-13T07:00",
       "temp": 13.9,
-      "code": 45
+      "code": 3
     },
     {
       "time": "2026-10-13T08:00",
@@ -763,7 +763,7 @@
     {
       "time": "2026-10-16T07:00",
       "temp": 13.3,
-      "code": 45
+      "code": 3
     },
     {
       "time": "2026-10-16T08:00",
@@ -1243,7 +1243,7 @@
     {
       "time": "2026-10-20T07:00",
       "temp": 8.6,
-      "code": 45
+      "code": 3
     },
     {
       "time": "2026-10-20T08:00",
@@ -1689,26 +1689,26 @@
   "daily": [
     {
       "date": "2026-10-10",
-      "temp_max": 20.2,
+      "temp_max": 20.1,
       "temp_min": 13.4,
       "code": 80
     },
     {
       "date": "2026-10-11",
       "temp_max": 21.7,
-      "temp_min": 13.9,
+      "temp_min": 14.2,
       "code": 81
     },
     {
       "date": "2026-10-12",
-      "temp_max": 23.8,
-      "temp_min": 14.8,
+      "temp_max": 23.7,
+      "temp_min": 15.1,
       "code": 95
     },
     {
       "date": "2026-10-13",
-      "temp_max": 24.1,
-      "temp_min": 13.8,
+      "temp_max": 24.0,
+      "temp_min": 13.9,
       "code": 51
     },
     {
@@ -1720,7 +1720,7 @@
     {
       "date": "2026-10-15",
       "temp_max": 22.9,
-      "temp_min": 13.5,
+      "temp_min": 13.6,
       "code": 81
     },
     {
@@ -1731,44 +1731,44 @@
     },
     {
       "date": "2026-10-17",
-      "temp_max": 18.7,
-      "temp_min": 11.4,
+      "temp_max": 18.4,
+      "temp_min": 11.6,
       "code": 53
     },
     {
       "date": "2026-10-18",
-      "temp_max": 21.4,
-      "temp_min": 10.8,
+      "temp_max": 21.3,
+      "temp_min": 11.0,
       "code": 95
     },
     {
       "date": "2026-10-19",
-      "temp_max": 22.2,
-      "temp_min": 11.1,
+      "temp_max": 22.1,
+      "temp_min": 11.2,
       "code": 51
     },
     {
       "date": "2026-10-20",
-      "temp_max": 22.2,
-      "temp_min": 8.5,
+      "temp_max": 22.1,
+      "temp_min": 8.6,
       "code": 51
     },
     {
       "date": "2026-10-21",
-      "temp_max": 21.1,
-      "temp_min": 13.8,
+      "temp_max": 20.3,
+      "temp_min": 14.0,
       "code": 55
     },
     {
       "date": "2026-10-22",
-      "temp_max": 22.0,
+      "temp_max": 21.2,
       "temp_min": 12.8,
       "code": 80
     },
     {
       "date": "2026-10-23",
-      "temp_max": 21.6,
-      "temp_min": 11.2,
+      "temp_max": 20.5,
+      "temp_min": 11.8,
       "code": 2
     }
   ],
